@@ -1,24 +1,19 @@
-function weatherBalloon( cityID ) {
-  var key = '{9570903009c5f9042b0f4ac81b142ad2}';
-  fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID+ '&appid=' + key)  
-  .then(function(resp) { return resp.json() }) // Convert data to json
+document.addEventListener('DOMContentLoaded', cityWeather);
+
+function weatherDataFetch( city ) {
+  var key = '77f97b598769bf8861004c74e30ebbba';
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)
+  .then(function(resp) {
+    return resp.json()
+  }) // convert data to json
   .then(function(data) {
     console.log(data);
   })
   .catch(function() {
-    // catch any errors
-  });
+    // catch errors
+  })
 }
 
-window.onload = function() {
-  weatherBalloon( 6167865 );
-}
-
-function drawWeather( d ) {
-	var celcius = Math.round(parseFloat(d.main.temp)-273.15);
-	var fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32); 
-	
-	document.getElementById('description').innerHTML = d.weather[0].description;
-	document.getElementById('temp').innerHTML = celcius + '&deg;';
-	document.getElementById('location').innerHTML = d.name;
+function cityWeather(e) {
+  weatherDataFetch( 'Tallinn' )
 }
