@@ -1,14 +1,63 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta chaarset="utf-8">
+  <meta charset="utf-8">
   <title>Current Weather</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;  
+      background: cornflowerblue;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .weatherBox {
+      display: block;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 2px 4px 4px black;
+      text-align: center;
+      margin: 4em auto;
+      overflow: hidden;
+      width: 12em;
+      font-size: 150%;
+    }
+
+    h1 {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      padding: 2em;
+    }
+
+    #img {
+      background: url('https://image.flaticon.com/icons/png/512/979/979585.png') center no-repeat;
+      background-size: 10em;
+    }
+
+    #location {
+      border-top: 3px solid cornflowerblue;
+      background: gainsboro;
+      padding: 0.5rem;
+      font-size: 200%;
+    }
+
+    #description {
+      border-top: 3px solid cornflowerblue;
+      background: gainsboro;
+      padding: 0.5rem;
+    }
+
+  </style>
 </head>
 <body>
-  <div id="weather">
-    <div id="description"></div>
-    <h1 id="temp"></h1>
-    <div id="location"></div>
+  <div class="weatherBox">
+    <div id="weather">
+      <div id="img">
+        <h1 id="temp"></h1>
+      </div>
+      <div id="location"></div>
+      <div id="description"></div>
+    </div>
   </div>
   <script lang="text/javascript" src="app.js"></script>
   
